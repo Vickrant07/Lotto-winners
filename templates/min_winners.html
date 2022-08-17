@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<form action="" method="POST" novalidate> 
+    {{ form.hidden_tag() }} 
+    {{ form.country.label }}
+    {{ form.country() }}
+    {{ form.points.label }} 
+    {{ form.points() }}
+    {{ form.submit() }}
+    <table>
+        <caption>{{ caption }}</caption>
+
+        {% for win in winner %}
+        <tr>
+        <td>
+            {{ win["year"] }} 
+        </td>
+        <td>
+            {{ win["country"] }}   
+        </td>
+        <td>
+            {{ win["song"] }} 
+        </td>
+        <td>
+            {{ win["performer"] }}
+        </td>
+        <td>
+            {{ win["points"] }}
+        </td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+{% endblock %}
+
